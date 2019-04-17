@@ -20,7 +20,12 @@ class FieldServiceProvider extends ServiceProvider
         });
 
         Text::macro('detailLink', function () {
-            if (null == resolve(NovaRequest::class)->resourceId) {
+            $request = resolve(NovaRequest::class);
+
+            if (
+                !$request->isCreateOrAttachRequest() &&
+                !$request->isUpdateOrUpdateAttachedRequest() &&
+                is_null($request->resourceId)) {
                 $this->component = 'nova-detail-link';
             }
 
