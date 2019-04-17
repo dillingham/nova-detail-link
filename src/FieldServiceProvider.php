@@ -21,7 +21,7 @@ class FieldServiceProvider extends ServiceProvider
 
         Text::macro('detailLink', function () {
             if (null == resolve(NovaRequest::class)->resourceId) {
-                $this->useComponent('nova-detail-link');
+                $this->component = 'nova-detail-link';
             }
 
             return $this;
