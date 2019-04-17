@@ -1,5 +1,5 @@
 {
-    "name": "dillingham/nova-text-link",
+    "name": "dillingham/nova-detail-link",
     "description": "A Laravel Nova field.",
     "keywords": [
         "laravel",
@@ -11,13 +11,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Dillingham\\NovaTextLink\\": "src/"
+            "Dillingham\\NovaDetailLink\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Dillingham\\NovaTextLink\\FieldServiceProvider"
+                "Dillingham\\NovaDetailLink\\FieldServiceProvider"
             ]
         }
     },

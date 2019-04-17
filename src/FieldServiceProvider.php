@@ -1,6 +1,6 @@
 <?php
 
-namespace Dillingham\NovaTextLink;
+namespace Dillingham\NovaDetailLink;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Fields\Text;
@@ -16,12 +16,12 @@ class FieldServiceProvider extends ServiceProvider
     public function boot()
     {
         Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-text-link', __DIR__.'/../dist/js/field.js');
+            Nova::script('nova-detail-link', __DIR__.'/../dist/js/field.js');
         });
 
         Text::macro('detailLink', function () {
             if (null == resolve(NovaRequest::class)->resourceId) {
-                $this->useComponent('nova-text-link');
+                $this->useComponent('nova-detail-link');
             }
 
             return $this;
