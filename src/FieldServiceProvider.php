@@ -31,6 +31,19 @@ class FieldServiceProvider extends ServiceProvider
 
             return $this;
         });
+        
+        Text::macro('updateLink', function () {
+            $request = resolve(NovaRequest::class);
+
+            if (
+                !$request->isCreateOrAttachRequest() &&
+                !$request->isUpdateOrUpdateAttachedRequest() &&
+                is_null($request->resourceId)) {
+                $this->component = 'nova-update-link';
+            }
+
+            return $this;
+        });
     }
 
     /**
