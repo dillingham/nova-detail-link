@@ -27,6 +27,8 @@ class FieldServiceProvider extends ServiceProvider
                 !$request->isUpdateOrUpdateAttachedRequest() &&
                 is_null($request->resourceId)) {
                 $this->component = 'nova-detail-link';
+
+                $field->resolveUsing(fn () => (string) $field->resource->{$field->attribute});
             }
 
             return $this;
